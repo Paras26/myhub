@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+int data;
+struct node* next;
+};
+
+void moveToFront(struct node **q)
+{
+ struct node *s,*l;
+ 
+ if(*q==NULL || *q->next==NULL)
+   return;
+   
+while(l->next!=NULL)
+{
+   s=l;
+   l=l->next;
+}
+
+s->next=NULL;
+*q=l;
+}
+
+void push(struct node **q,int data)
+{
+ struct node *p=(struct node*)malloc(sizeof(struct node));
+  p->data=data;
+  p->next=*q;
+  *q=p;
+  }
+  
+  int main()
+  {
+  struct node *start=NULL;
+  
+  push(&start,1);
+  push(&start,3);
+  push(&start,7);
+  push(&start,9);
+  
+  moveToFront(&start);
+  }
