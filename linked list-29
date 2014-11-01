@@ -1,0 +1,21 @@
+struct node* Merge(struct node* p, struct node* q) 
+{
+  struct node* final = NULL;
+ 
+  if (p == NULL) 
+     return(q);
+  else if (q==NULL) 
+     return(p);
+ 
+ if (p->data <= q->data) 
+  {
+     final=p;
+     final->next = Merge(p->next, q);
+  }
+  else
+  {
+     final=q;
+     final->next = Merge(p, q->next);
+  }
+  return(final);
+}
